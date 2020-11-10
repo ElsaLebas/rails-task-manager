@@ -1,14 +1,16 @@
-<h1>My tasks</h1>
+<div class="container">
+  <h1>My tasks</h1>
 
-<ul>
-  <% @tasks.each do |task| %>
-    <% if task.completed %>
-      <% task_status = "x" %>
-    <% else %>
-      <% task_status = " " %>
+  <ul>
+    <% @tasks.each do |task| %>
+      <% if task.completed %>
+        <% task_status = "x" %>
+      <% else %>
+        <% task_status = " " %>
+      <% end %>
+    <li>[<%= task_status %>] <%= link_to task.title, task_path(task.id) %></li>
     <% end %>
-  <li>[<%= task_status %>] <%= link_to task.title, task_path(task.id) %></li>
-  <% end %>
-</ul>
+  </ul>
 
-<%= link_to "+ Create new task", new_task_path %>
+  <%= link_to "+ Create new task", new_task_path %>
+</div>

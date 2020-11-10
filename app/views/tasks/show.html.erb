@@ -1,26 +1,28 @@
-<h1><%=@task.title%></h1><br>
+<div class="container">
+  <h1><%=@task.title%></h1><br>
 
-<p><%= @task.details %></p><br>
+  <p><%= @task.details %></p><br>
 
-<% if @task.completed %>
-  <% task_status = "x" %>
-  <% task_status_details = "This task is completed" %>
-<% else %>
-  <% task_status = " " %>
-  <% task_status_details = "This task is not completed yet" %>
-<% end %>
+  <% if @task.completed %>
+    <% task_status = "x" %>
+    <% task_status_details = "This task is completed" %>
+  <% else %>
+    <% task_status = " " %>
+    <% task_status_details = "This task is not completed yet" %>
+  <% end %>
 
-<p>[<%= task_status %>] <%= task_status_details %></p><br>
+  <p>[<%= task_status %>] <%= task_status_details %></p><br>
 
-<%= link_to "Edit this task", edit_task_path %>
-<br>
-<br>
+  <%= link_to "Edit this task", edit_task_path %>
+  <br>
+  <br>
 
-<%= link_to "Delete this task", #COULD ALSO "Delete #{@task.title}"
-  task_path(@task),
-  method: :delete,
-  data: { confirm: "Are you sure ?" } %>
+  <%= link_to "Delete this task", #COULD ALSO "Delete #{@task.title}"
+    task_path(@task),
+    method: :delete,
+    data: { confirm: "Are you sure ?" } %>
 
-<br>
-<br>
-<%= link_to "Back to list", tasks_path %>
+  <br>
+  <br>
+  <%= link_to "Back to list", tasks_path %>
+</div>
